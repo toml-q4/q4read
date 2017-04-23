@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FrameworkConfigService } from '../fw/services/framework-config.service'
+import { FrameworkConfigService, FrameworkConfigSettings } from '../fw/services/framework-config.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +8,18 @@ import { FrameworkConfigService } from '../fw/services/framework-config.service'
 export class AppComponent {
   constructor(private framworkConfigService: FrameworkConfigService)
   {
+    let config:FrameworkConfigSettings = {
+      socialIcons: [
+        { imageFile: 'asset/social-fb-bw.png', alt: 'Facebook', link: 'http://www.facebook.com'},
+        { imageFile: 'asset/social-google-bw.png', alt: 'Google +', link: 'http://www.google.com'},
+        { imageFile: 'asset/social-twitter-bw.png', alt: 'Twitter', link: 'http://www.twitter.com'}
+      ],
+      showLanguageSelector: true,
+      showUserControls: true,
+      showStatusBar: true,
+      showStatusBarBreakpoint: 800
+    };
 
+    framworkConfigService.configure(config);
   }
 }
