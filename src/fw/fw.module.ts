@@ -5,6 +5,7 @@ import { ContentComponent } from './content/content.component'
 import { TitleBarComponent } from './title-bar/title-bar.component'
 import { FrameworkConfigService } from './services/framework-config.service'
 import { TopBarComponent } from './top-bar/top-bar.component'
+import { BookComponent } from './book/book.component'
 @NgModule({
   imports: [
     CommonModule
@@ -13,7 +14,8 @@ import { TopBarComponent } from './top-bar/top-bar.component'
     FrameworkBodyComponent,
     ContentComponent,
     TitleBarComponent,
-    TopBarComponent
+    TopBarComponent,
+    BookComponent
   ],
   providers: [
     FrameworkConfigService

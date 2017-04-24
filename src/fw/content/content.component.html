@@ -1,3 +1,5 @@
-<p>
-  content works!
-</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let book of books">
+    <fw-book [book]="book"></fw-book>
+  </li>
+</ul>
