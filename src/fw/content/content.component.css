@@ -2,3 +2,8 @@
     display: flex;
     flex-grow: 1;
 }
+
+.list-group-item {
+    border: none;
+    margin-bottom: 20px;
+}

@@ -1,8 +1,18 @@
-<h2>
-  {{book.title}}  
-</h2>
-<ul class="list-unstyled">
-  <li *ngFor="let author of book.authors">
-    {{author}}
-  </li>
-</ul>
+<div class="book">
+  <div class="book-cover">
+    <img alt="book cover" [src]="book.coverUrl" width="100" />
+  </div>
+
+  <div class="book-details">
+    <span class="book-title">{{book.title}}</span>
+
+    <ul class="list-unstyled">
+      <li *ngFor="let author of book.authors" class="book-authors">
+        {{author}}
+      </li>
+    </ul>
+
+    <a href="{{book.downloadUrl}}" target="_blank" *ngIf="book.downloadUrl">Download</a>
+  </div>
+
+</div>
