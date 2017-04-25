@@ -13,13 +13,4 @@ export class AppDataService {
   constructor() {
   }
 
-  
-  getBooks() : Observable<any> {
-    return Observable.of(this.books);
-  }
-
-  getBook(id: number) : Observable<Book> {
-    var book = this.books.find(c => c.id == id);
-    return Observable.of(book);
-  }  
 }
