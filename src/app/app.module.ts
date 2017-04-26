@@ -2,9 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { FwModule } from '../fw/fw.module'
+
+export const firebaseConfig = {
+  apiKey: '<your-key>',
+  authDomain: '<your-project-authdomain>',
+  databaseURL: 'https://q4read.firebaseio.com',
+  storageBucket: '<your-storage-bucket>',
+  messagingSenderId: '<your-messaging-sender-id>'
+};
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +22,8 @@ import { FwModule } from '../fw/fw.module'
     BrowserModule,
     FormsModule,
     HttpModule,
-    FwModule
+    FwModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
