@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../domains/book'
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
-
+import { BookService } from '../services/book.service'
 
 @Component({
   selector: 'fw-content',
@@ -9,24 +8,12 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  books: FirebaseListObservable<any[]>;
-  ebooks: FirebaseListObservable<any[]>;
-  constructor(af: AngularFire) { 
-    this.books = af.database.list('/books', {
-      query: {
-        orderByChild: 'downloadUrl',
-        equalTo: '' 
-      }
-    });
-    this.ebooks = af.database.list('/books', {
-      query: {
-        orderByChild: 'downloadUrl',
-        startAt: 'http' 
-      }
-    });
-  }
+  errorMessage: string;
+  books: Book[];
+
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
+    this.bookService.getBooks().subscribe(books => this.books = books, error => this.errorMessage = <any>error);
   }
-
 }

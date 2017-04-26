@@ -4,8 +4,14 @@ import { FrameworkBodyComponent } from './framework-body/framework-body.componen
 import { ContentComponent } from './content/content.component'
 import { TitleBarComponent } from './title-bar/title-bar.component'
 import { FrameworkConfigService } from './services/framework-config.service'
+import { BookService } from './services/book.service'
+
 import { TopBarComponent } from './top-bar/top-bar.component'
 import { BookComponent } from './book/book.component'
+
+
+import { EbookPipe } from './pipes/ebook.pipe';
+import { RealBookPipe } from './pipes/real-book.pipe';
 @NgModule({
   imports: [
     CommonModule
@@ -15,10 +21,13 @@ import { BookComponent } from './book/book.component'
     ContentComponent,
     TitleBarComponent,
     TopBarComponent,
-    BookComponent
+    BookComponent,
+    EbookPipe,
+    RealBookPipe
   ],
   providers: [
-    FrameworkConfigService
+    FrameworkConfigService,
+    BookService
   ],
   exports: [
     FrameworkBodyComponent

@@ -12,7 +12,7 @@
         </div>
 
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let book of books | async">
+            <li class="list-group-item" *ngFor="let book of books | realBook">
                 <fw-book [book]="book"></fw-book>
             </li>
         </ul>
@@ -24,9 +24,11 @@
             <p>Email Tom Luong the PDF file (use Google Drive as attachment feature).</p>
         </div>
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let book of ebooks | async">
+            <li class="list-group-item" *ngFor="let book of books | ebook">
                 <fw-book [book]="book"></fw-book>
             </li>
         </ul>
     </div>
 </div>
+
+<p>{{errorMessage}}</p>
