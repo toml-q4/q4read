@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
-import { FwModule } from '../fw/fw.module'
+import { FwModule } from '../fw/fw.module';
+import { RouterModule, Routes } from '@angular/router';
 
 export const firebaseConfig = {
   apiKey: '<your-key>',
