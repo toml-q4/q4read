@@ -23,7 +23,11 @@ export class ContentComponent implements OnInit {
       this.books = this.books.sort(function(a,b) {return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0);} );
     }
     else if (newValue === "author"){
-      this.books = this.books.sort(function(a,b) {return (a.authors.join(", ") > b.authors.join(", ")) ? 1 : ((b.authors.join(", ") > a.authors.join(", ")) ? -1 : 0);} );
+      this.books = this.books.sort(function(a,b) {
+        var a_authors = a.authors.join(", ");
+        var b_authors = b.authors.join(", ");
+        return (a_authors > b_authors) ? 1 : ((b_authors > a_authors) ? -1 : 0);
+      } );
     }
   }
 }
