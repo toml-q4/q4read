@@ -14,7 +14,7 @@ export class ContentComponent implements OnInit {
   selectedRealBookSortBy: string;
 
   constructor(private bookService: BookService) { 
-    this.selectedRealBookSortBy = this.sortBys[0];
+    
   }
 
   ngOnInit() {

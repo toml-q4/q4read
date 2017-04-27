@@ -6,12 +6,12 @@ import { Book } from '../domains/book'
 })
 export class SortByPipe implements PipeTransform {
 
-  transform(value: Book[], args?: string): any {
+  transform(value: Book[], [config='title']): any {
     if (value === undefined) {
       return value;
     }
     else {
-      if (args[0] === "author")
+      if (config === "author")
       {
         return value.sort(function(a,b) {
           var a_authors = a.authors.join(", ");
@@ -19,7 +19,7 @@ export class SortByPipe implements PipeTransform {
           return (a_authors > b_authors) ? 1 : ((b_authors > a_authors) ? -1 : 0);
         } );
       }
-      else if (args[0] === "title") {
+      else if (config === "title") {
         return value.sort(function(a,b) {return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0);} );
       }
       else {
