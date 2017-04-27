@@ -1,18 +1,18 @@
 <div class="book">
-  <div class="book-cover">
-    <img alt="book cover" [src]="book.coverUrl" width="100" />
-  </div>
+    <div class="book-cover">
+        <img alt="book cover" [src]="book.coverUrl" width="100" />
+    </div>
 
-  <div class="book-details">
-    <span class="book-title">{{book.title}}</span>
+    <div class="book-details">
+        <span class="book-title">{{book.title}}</span>
 
-    <ul class="list-unstyled">
-      <li *ngFor="let author of book.authors" class="book-authors">
-        {{author}}
-      </li>
-    </ul>
+        <ul class="list-unstyled">
+            <li *ngFor="let author of book.authors" class="book-authors">
+                {{author}}
+            </li>
+        </ul>
 
-    <a href="{{book.downloadUrl}}" target="_blank" *ngIf="book.downloadUrl">Download</a>
-  </div>
+        <a role="button" class="btn btn-sm btn-primary" href="{{book.downloadUrl}}" target="_blank" *ngIf="book.downloadUrl">Download</a>
+    </div>
 
 </div>

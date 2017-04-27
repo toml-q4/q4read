@@ -9,11 +9,21 @@ import { BookService } from '../services/book.service'
 })
 export class ContentComponent implements OnInit {
   errorMessage: string;
+  sortBys = ["title", "author"];
   books: Book[];
 
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe(books => this.books = books, error => this.errorMessage = <any>error);
+    this.bookService.getBooks().subscribe(books => this.books = books.sort(function(a,b) {return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0);} ), error => this.errorMessage = <any>error);
+  }
+
+  onSortByChange(newValue) {
+    if (newValue === "title"){
+      this.books = this.books.sort(function(a,b) {return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0);} );
+    }
+    else if (newValue === "author"){
+      this.books = this.books.sort(function(a,b) {return (a.authors.join(", ") > b.authors.join(", ")) ? 1 : ((b.authors.join(", ") > a.authors.join(", ")) ? -1 : 0);} );
+    }
   }
 }

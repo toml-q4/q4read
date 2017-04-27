@@ -9,8 +9,12 @@
                 <li>Online URL to buy (prefer Amazon.ca)</li>
                 <li>Why did you pick this title? What are the benefits for you and Q4? (for aprroval purposes)</li>
             </ul>
+            There will be more information about borrowing the books home. Stay tuned.
         </div>
-
+        Sort By
+        <select (change)="onSortByChange($event.target.value)">
+            <option *ngFor="let i of sortBys">{{i}}</option>
+        </select>
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let book of books | realBook">
                 <fw-book [book]="book"></fw-book>
