@@ -12,11 +12,11 @@
             There will be more information about borrowing the books home. Stay tuned.
         </div>
         Sort By
-        <select (change)="onSortByChange($event.target.value)">
-            <option *ngFor="let i of sortBys">{{i}}</option>
+        <select [(ngModel)]="selectedRealBookSortBy" name="selectedRealBookSortBy">
+            <option *ngFor="let i of sortBys" [ngValue]="i">{{i}}</option>
         </select>
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let book of books | realBook">
+            <li class="list-group-item" *ngFor="let book of books | realBook | sortBy: selectedRealBookSortBy ">
                 <fw-book [book]="book"></fw-book>
             </li>
         </ul>

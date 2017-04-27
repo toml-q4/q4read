@@ -12,6 +12,7 @@ import { BookComponent } from './book/book.component'
 
 import { EbookPipe } from './pipes/ebook.pipe';
 import { RealBookPipe } from './pipes/real-book.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe'
 @NgModule({
   imports: [
     CommonModule
@@ -23,7 +24,8 @@ import { RealBookPipe } from './pipes/real-book.pipe';
     TopBarComponent,
     BookComponent,
     EbookPipe,
-    RealBookPipe
+    RealBookPipe,
+    SortByPipe
   ],
   providers: [
     FrameworkConfigService,
